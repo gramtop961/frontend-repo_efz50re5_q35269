@@ -1,71 +1,91 @@
+import Spline from '@splinetool/react-spline'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="min-h-screen bg-slate-950 text-white">
+      {/* Hero Section with Spline full-width cover */}
+      <section className="relative h-[80vh] w-full overflow-hidden">
+        {/* Spline 3D Background */}
+        <div className="absolute inset-0">
+          <Spline
+            scene="https://prod.spline.design/no-S8HKPA9ln9-NN/scene.splinecode"
+            style={{ width: '100%', height: '100%' }}
+          />
+        </div>
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
-            </div>
+        {/* Ethereal gradient glow overlay (doesn't block interaction) */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-900/10 via-slate-950/30 to-slate-950/90" />
 
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="mx-auto max-w-5xl px-6 md:px-10 w-full">
+            <div className="backdrop-blur-sm/0">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+                Luminous Intelligence
+              </h1>
+              <p className="mt-4 max-w-2xl text-blue-200/90 text-base sm:text-lg">
+                A serene cluster of pure energy, constantly transforming into clear, logical structures. Calm, ethereal, and infinitely adaptable.
+              </p>
 
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="#explore"
+                  className="inline-flex items-center justify-center rounded-xl bg-blue-500/90 hover:bg-blue-500 text-white px-6 py-3 font-semibold shadow-[0_0_25px_rgba(59,130,246,0.35)] transition"
+                >
+                  Explore the Concept
+                </a>
+                <a
+                  href="/test"
+                  className="inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/15 text-blue-100 px-6 py-3 font-semibold border border-white/10 backdrop-blur-md transition"
+                >
+                  System Check
+                </a>
               </div>
             </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Info Section */}
+      <section id="explore" className="relative py-20 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900">
+        {/* Subtle radial highlights */}
+        <div className="pointer-events-none absolute inset-0 opacity-50 [background:radial-gradient(60%_40%_at_50%_0%,rgba(80,120,255,0.20),transparent_60%)]" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-10">
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card
+              title="Clarity"
+              text="Ideas crystallize into lucid, 3D structures that reveal connections at a glance."
+            />
+            <Card
+              title="Serenity"
+              text="A calm, warm glow creates focus and invites deeper thinking without distraction."
+            />
+            <Card
+              title="Transformation"
+              text="Energy flows into new forms instantly, illustrating logic and possibility."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative py-10 border-t border-white/5 bg-slate-900/60">
+        <div className="mx-auto max-w-6xl px-6 md:px-10 text-center text-blue-200/70">
+          Crafted for an ethereal, science‑fiction aesthetic.
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+function Card({ title, text }) {
+  return (
+    <div className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md overflow-hidden">
+      {/* Glow */}
+      <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(60%_60%_at_30%_10%,rgba(99,102,241,0.25),transparent_60%)]" />
+      <h3 className="relative z-10 text-xl font-semibold text-white">{title}</h3>
+      <p className="relative z-10 mt-2 text-blue-200/80 text-sm">{text}</p>
     </div>
   )
 }
